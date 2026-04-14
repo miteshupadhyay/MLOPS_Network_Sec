@@ -1,0 +1,1 @@
+conda create -p mlopsenv python=3.12 -y
