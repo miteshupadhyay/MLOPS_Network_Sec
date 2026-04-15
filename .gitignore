@@ -1,2 +1,4 @@
 mlopsenv/
 .env
+logs
+networksecurity.egg-info
