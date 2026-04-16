@@ -12,7 +12,14 @@ ENV AIRFLOW_CORE_DAGBAG_IMPORT_TIMEOUT=1000
 ENV AIRFLOW_CORE_ENABLE_XCOM_PICKLING=True
 #RUN airflow db init
 RUN airflow db migrate
-RUN airflow users create -e upadhyaymitesh91@gmail.com -f mitesh -l upadhyay -p admin -r Admin -u admin
+#RUN airflow users create -e upadhyaymitesh91@gmail.com -f mitesh -l upadhyay -p admin -r Admin -u admin
+RUN airflow users create \
+    --username admin \
+    --firstname mitesh \
+    --lastname upadhyay \
+    --role Admin \
+    --email upadhyaymitesh91@gmail.com \
+    --password admin
 RUN chmod 777 start.sh
 RUN apt update -y
 ENTRYPOINT [ "/bin/sh" ]
