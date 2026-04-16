@@ -17,5 +17,5 @@ mlflow
 dvc
 jinja2
 python-multipart
-
+apache-airflow[postgres]==2.7.3
 -e .
