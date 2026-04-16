@@ -2,7 +2,7 @@ FROM python:3.10-slim-buster
 USER root
 
 # Install system deps
-RUN apt-get update -y && apt-get install -y build-essential libpq-dev
+#RUN apt-get update -y && apt-get install -y build-essential libpq-dev
 
 RUN mkdir /app
 COPY . /app/
