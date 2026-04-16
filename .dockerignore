@@ -1,0 +1,8 @@
+mlopsenv
+notebooks
+.git
+Network_Data
+logs
+saved_models
+Notebook
+Artifacts
