@@ -4,7 +4,7 @@ from textwrap import dedent
 import pendulum
 import os
 from airflow import DAG
-from airflow.operators import PythonOperator
+from airflow.operators.python import PythonOperator
 from dotenv import load_dotenv
 load_dotenv()
 

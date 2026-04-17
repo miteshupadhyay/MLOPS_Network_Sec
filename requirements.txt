@@ -12,11 +12,10 @@ xgboost
 fastapi
 uvicorn
 ipykernel
-apache-airflow
+apache-airflow[postgres]==2.10.0
 mlflow
 dvc
 jinja2
 python-multipart
-apache-airflow[postgres]==2.7.3
-Flask-Session==0.5.0
+
 -e .
