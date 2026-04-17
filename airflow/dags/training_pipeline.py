@@ -13,8 +13,8 @@ with DAG(
     default_args={'retries': 2},
     # [END default_args]
     description='network security pipeline',
-    schedule_interval="@weekly",
-    start_date=pendulum.datetime(2026,4,16, tz="UTC"),
+    schedule_interval="@daily",
+    start_date=pendulum.datetime(2026,4,17, tz="UTC"),
     catchup=False,
     tags=['example'],
 ) as dag:
