@@ -24,7 +24,7 @@ jobs:
 
       - name: Run unit tests
         run: echo "Running unit tests"
-
+       
   build-and-push-ecr-image:
     name: Continuous Delivery
     needs: integration
@@ -47,6 +47,11 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Ensure ECR repository exists
+        run: |
+          aws ecr describe-repositories --repository-names $ECR_REPOSITORY || \
+          aws ecr create-repository --repository-name $ECR_REPOSITORY  
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
