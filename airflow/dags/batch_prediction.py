@@ -14,15 +14,15 @@ with DAG(
     default_args={'retries': 2},
     # [END default_args]
     description='Network Security Prediction',
-    schedule_interval="@weekly",
-    start_date=pendulum.datetime(2024, 9, 1, tz="UTC"),
+    schedule_interval="@daily",
+    start_date=pendulum.datetime(2026, 4, 18, tz="UTC"),
     catchup=False,
     tags=['example'],
 ) as dag:
 
     
     def download_files(**kwargs):
-        bucket_name = "my-network-datasource"
+        bucket_name = "mitesh-network-datasource"
         input_dir = "/app/input_files"
         #creating directory
         os.makedirs(input_dir,exist_ok=True)
