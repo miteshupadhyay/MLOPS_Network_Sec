@@ -9,12 +9,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 with DAG(
-    'network_security',
+    'network_training',
     default_args={'retries': 2},
     # [END default_args]
     description='network security pipeline',
     schedule_interval="@daily",
-    start_date=pendulum.datetime(2026,4,17, tz="UTC"),
+    start_date=pendulum.datetime(2026,4,18, tz="UTC"),
     catchup=False,
     tags=['example'],
 ) as dag:

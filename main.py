@@ -30,7 +30,7 @@ from uvicorn import run as app_run
 from fastapi.responses import Response
 from starlette.responses import RedirectResponse
 import pandas as pd
-
+from fastapi.templating import Jinja2Templates
 from networksecurity.utils.ml_utils.model.estimator import ModelResolver
 from networksecurity.constant.training_pipeline import SAVED_MODEL_DIR
 
@@ -85,10 +85,17 @@ async def predict_route(request: Request,file: UploadFile = File(...)):
         df['predicted_column'] = y_pred
         df['predicted_column'].replace(-1, 0)
         #return df.to_json()
-        table_html = df.to_html(classes='table table-striped')
+        #table_html = df.to_html(classes='table table-striped')
         #print(table_html)
-        return templates.TemplateResponse("table.html", {"request": request, "table": table_html})
-        
+        #return templates.TemplateResponse("table.html", {"request": request, "table": table_html})
+         # Convert DataFrame to HTML table
+        table_html = df.to_html(classes="table table-striped table-bordered", index=False)
+
+        # Render using Jinja2 template
+        return templates.TemplateResponse(
+            "table.html",
+            {"request": request, "table": table_html}
+        )
     except Exception as e:
             raise NetworkSecurityException(e,sys)
 
